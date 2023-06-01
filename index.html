@@ -8,6 +8,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>GET IN TOUCH</h3>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="E-mail id" required>
+            <input type="text" id="phone" placeholder="Phone no." required>
+            <textarea id="message" row="4" placeholder="How Can We Help You?"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "ronyvaiyaauniqued01@gmail.com",
+                Password : "019mehedi",
+                To : 'ronyvaiyaauniqued01@gmail.com',
+                From : document.getElementById("elasticemail").value,
+                Subject : "New Contact From Enquiry",
+                Body : "And this is the body"
+            }).then(
+            message => alert(message)
+            );
+        }
+    </script>
 </body>
 </html>
